@@ -31,7 +31,7 @@ $ErrorActionPreference = 'Stop'
 
 function DownloadFile($destination, $source) {
     Write-Host("Downloading $source to $destination")
-    curl.exe --silent --fail -Lo $destination $source
+    curl.exe --ssl-no-revoke --silent --fail -Lo $destination $source
 
     if (!$?) {
         Write-Error "Download $source failed"
